@@ -67,6 +67,7 @@ public class TelaPrincipalApp extends JFrame {
         bdepositar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Depositar valor
                 try {
                     double valor = Double.parseDouble(JOptionPane.showInputDialog("DIGITE O VALOR $ PARA DEPOSITAR"));
                     if (valor>0){
@@ -83,6 +84,7 @@ public class TelaPrincipalApp extends JFrame {
         bsacar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //sacar saldo
                 try {
                     double valor = Double.parseDouble(JOptionPane.showInputDialog("DIGITE O VALOR $ PARA SACAR"));
                     if (valor<=cliente.getSaldo()&&valor>0){
@@ -100,6 +102,7 @@ public class TelaPrincipalApp extends JFrame {
         btransferir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //transfere saldo para outro usuario
                 try {
                     //Bug de campos vazios arrumado
                     String numeroDaConta = JOptionPane.showInputDialog("DIGITE O NUMERO DA CONTA ");
@@ -125,6 +128,7 @@ public class TelaPrincipalApp extends JFrame {
             }
         });
         bsair.addActionListener(new ActionListener() {
+            //Volta para a tela de cadastro
             @Override
             public void actionPerformed(ActionEvent e) {
                 TelaBanco3GK tela1 = new TelaBanco3GK("Banco 3GK");

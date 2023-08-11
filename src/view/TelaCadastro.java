@@ -53,6 +53,7 @@ public class TelaCadastro extends JFrame {
         bcadastrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //cadastra o usuario na matriz
                 String nomeProprietario= tnome.getText();
                 String senha = tsenha.getText();
                 if (!tnome.getText().isEmpty()&&!tsenha.getText().isEmpty()){

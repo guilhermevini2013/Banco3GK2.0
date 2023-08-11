@@ -1,10 +1,11 @@
 package Controller;
 
+import Interface.CalculaJuros;
 import view.TelaPrincipalApp;
 
 import javax.swing.*;
 
-public class Cliente extends Banco {
+public class Cliente extends Banco implements CalculaJuros {
     private String cpf;
     private String nomeProprietario;
     private String senha;
@@ -52,10 +53,23 @@ public class Cliente extends Banco {
             this.saldo+=valor;
     }
     public void sacar(double valor){
+        //remove o dinheiro da conta do usuario
         if (valor<=this.saldo&&valor>0){
             this.saldo-=valor;
         }else {
             JOptionPane.showMessageDialog(null,"valor incorreto");
         }
+    }
+
+    @Override
+    public double getTaxaPorcentagemMes(double valor, int quantidadeMes, double porcentagem) {
+        valor = ((porcentagem/100)*valor);
+        valor = valor*quantidadeMes;
+        return valor;
+    }
+    @Override
+    public double getTaxaequivalentes(double taxa, double prazo, double prazoDesejavel) {
+        double taxaEquivalente=(Math.pow(1+taxa,prazo)/prazoDesejavel)*100;
+        return taxaEquivalente;
     }
 }

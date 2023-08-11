@@ -68,7 +68,7 @@ public class TelaEditarInformcao extends JFrame {
         bsalvar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                // salva o novo endereco do usuario
                 Endereco endereco = new Endereco();
                 endereco.setRua( trua.getText());
                 endereco.setBairro( tbairro.getText());
