@@ -12,7 +12,7 @@ import static view.TelaBanco3GK.clientes;
 public class TelaPrincipalApp extends JFrame {
     private JLabel limg,lnome,lsaldo,lnumeroConta;
     private ImageIcon imagem;
-    private JButton bdepositar,bsacar,btransferir,binformacao,bsair;
+    private JButton bdepositar,bsacar,btransferir,binformacao,bsair,bjuros,bjuros2;
     static Cliente cliente;
     public TelaPrincipalApp(String title, Cliente cliente) throws HeadlessException {
         super(title);
@@ -42,6 +42,10 @@ public class TelaPrincipalApp extends JFrame {
         lnumeroConta = new JLabel("CONTA: "+cliente.getNumero());
         lnumeroConta.setFont(new Font(Font.SANS_SERIF,Font.BOLD,25));
         lnumeroConta.setForeground(new Color(255,255,255));
+        bjuros = new JButton("calcular juros de % ao mês");
+        bjuros2 = new JButton("calcular taxas equivalentes");
+        add(bjuros2);
+        add(bjuros);
         add(lnumeroConta);
         add(bsair);
         add(binformacao);
@@ -61,6 +65,8 @@ public class TelaPrincipalApp extends JFrame {
         btransferir.setBounds(210,20,110,40);
         binformacao.setBounds(330,20,150,40);
         bsair.setBounds(375,420,100,40);
+        bjuros.setBounds(40,80,200,30);
+        bjuros2.setBounds(250,80,200,30);
     }
 
     private void iniciarEventos() {
