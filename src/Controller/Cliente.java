@@ -69,7 +69,7 @@ public class Cliente extends Banco implements CalculaJuros {
     }
     @Override
     public double getTaxaequivalentes(double taxa, double prazo, double prazoDesejavel) {
-        double taxaEquivalente=(Math.pow(1+taxa,prazo)/prazoDesejavel)*100;
+        double taxaEquivalente=(Math.pow((taxa/100)+1,prazoDesejavel/prazo)-1)*100;
         return taxaEquivalente;
     }
 }

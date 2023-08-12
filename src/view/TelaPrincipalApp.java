@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import static view.TelaBanco3GK.clientes;
 
@@ -70,6 +71,7 @@ public class TelaPrincipalApp extends JFrame {
     }
 
     private void iniciarEventos() {
+        DecimalFormat df = new DecimalFormat("#,##0.00"); // FORMATADOR DE DOUBLE COM 2 CASAS DECIMAIS
         bdepositar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -147,6 +149,32 @@ public class TelaPrincipalApp extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 TelaEditarInformcao tela = new TelaEditarInformcao("EDITAR INF",cliente);
                 tela.setVisible(true);
+            }
+        });
+        bjuros.addActionListener(new ActionListener() { //  calcular juros de % ao mês
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    double valor = Double.parseDouble(JOptionPane.showInputDialog("DIGITE O VALOR"));
+                    int quantidadeMes = Integer.parseInt(JOptionPane.showInputDialog("DIGITE A QUANTIDADE DE MES"));
+                    double porcentagem = Double.parseDouble(JOptionPane.showInputDialog("DIGITE A PORCENTAGEM"));
+                    JOptionPane.showMessageDialog(null,"O VALOR TOTAL DE TAXA EM "+quantidadeMes+" MES: "+df.format(cliente.getTaxaPorcentagemMes(valor,quantidadeMes,porcentagem))+"R$");
+                }catch (Exception a){
+
+                }
+            }
+        });
+        bjuros2.addActionListener(new ActionListener() { //calcular taxas equivalentes
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    double taxa = Double.parseDouble(JOptionPane.showInputDialog("DIGITE A TAXA"));
+                    int prazo = Integer.parseInt(JOptionPane.showInputDialog("DIGITE O PRAZO"));
+                    double prazoDesejavel = Double.parseDouble(JOptionPane.showInputDialog("DIGITE O PRAZO DESEJAVEL"));
+                    JOptionPane.showMessageDialog(null,"TAXAS EQUIVALENTES: "+df.format(cliente.getTaxaequivalentes(taxa,prazo,prazoDesejavel))+"%");
+                }catch (Exception l){
+
+                }
             }
         });
     }
