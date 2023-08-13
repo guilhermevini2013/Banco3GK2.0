@@ -1,6 +1,7 @@
 package view;
 
 import Controller.Cliente;
+import ViewAdmin.TelaAdministrar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,7 @@ import java.util.Random;
 public class TelaCadastro extends JFrame {
     private JLabel limg;
     private ImageIcon imagem;
+    private JRadioButton rbadm;
     private JTextField tnome,tsenha;
     private JButton bcadastrar;
     public TelaCadastro(String title) throws HeadlessException {
@@ -39,6 +41,10 @@ public class TelaCadastro extends JFrame {
         tsenha.setFont(font);
         tsenha.setOpaque(false);
         tsenha.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        rbadm = new JRadioButton("Administracao?");
+        rbadm.setFont(font);
+        rbadm.setOpaque(false);
+        add(rbadm);
         add(tsenha);
         add(tnome);
         add(bcadastrar);
@@ -48,6 +54,7 @@ public class TelaCadastro extends JFrame {
         tnome.setBounds(640,160,200,30);
         tsenha.setBounds(640,237,200,30);
         limg.setBounds(0,0,895,442);
+        rbadm.setBounds(550,280,140,30);
     }
     private void iniciarEventos() {
         bcadastrar.addActionListener(new ActionListener() {
@@ -57,12 +64,20 @@ public class TelaCadastro extends JFrame {
                 String nomeProprietario= tnome.getText();
                 String senha = tsenha.getText();
                 if (!tnome.getText().isEmpty()&&!tsenha.getText().isEmpty()){
-                    Random geradorNumeroConta = new Random();
-                    int numeroConta = geradorNumeroConta.nextInt(10001);
-                    TelaBanco3GK.clientes.add(new Cliente(nomeProprietario,senha,numeroConta));
-                    TelaBanco3GK tela1 = new TelaBanco3GK("Banco 3GK");
-                    tela1.setVisible(true);
-                    setVisible(false);
+                    if (rbadm.isSelected()){
+                        TelaBanco3GK.clientes.add(new Cliente(nomeProprietario,senha,true));
+                        //Tela Administracao
+                        TelaBanco3GK tela1 = new TelaBanco3GK("Banco 3GK");
+                        tela1.setVisible(true);
+                        setVisible(false);
+                    }else {
+                        Random geradorNumeroConta = new Random();
+                        int numeroConta = geradorNumeroConta.nextInt(10001);
+                        TelaBanco3GK.clientes.add(new Cliente(nomeProprietario,senha,numeroConta));
+                        TelaBanco3GK tela1 = new TelaBanco3GK("Banco 3GK");
+                        tela1.setVisible(true);
+                        setVisible(false);
+                    }
                 }else {
                     JOptionPane.showMessageDialog(null,"PRENCHA TODOS OS CAMPOS");
                 }

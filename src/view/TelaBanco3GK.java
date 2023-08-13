@@ -1,6 +1,7 @@
 package view;
 
 import Controller.Cliente;
+import ViewAdmin.TelaAdministrar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +16,7 @@ public class TelaBanco3GK extends JFrame {
     private JButton bcadastrar,bentrar;
     private ImageIcon imagem;
 
-     static List<Cliente> clientes = new ArrayList<>();
+     public static List<Cliente> clientes = new ArrayList<>();
     public TelaBanco3GK(String title) throws HeadlessException {
         super(title);
         setSize(895,470);
@@ -24,7 +25,6 @@ public class TelaBanco3GK extends JFrame {
         iniciarComponentes();
         iniciarEventos();
     }
-
     private void iniciarComponentes() {
         Font font = new Font(Font.SANS_SERIF,Font.BOLD,15);
         imagem = new ImageIcon(getClass().getResource("/imagens/img1.png"));
@@ -78,12 +78,20 @@ public class TelaBanco3GK extends JFrame {
                     boolean verifica=false;
                     for (Cliente cliente:clientes) {
                         if (cliente.getNomeProprietario().equals(nomeProprietario)&&cliente.getSenha().equals(senha)){
-                            System.out.println("ENTROU");
-                            verifica=true;
-                            TelaPrincipalApp tela1 = new TelaPrincipalApp("Banco 3GK",cliente);
-                            tela1.setVisible(true);
-                            setVisible(false);
-                            break;
+                            if (cliente.isAdministrador()){
+                                TelaAdministrar telaAdministrar = new TelaAdministrar("ADMINISTRAR-3GK",cliente);
+                                telaAdministrar.setVisible(true);
+                                setVisible(false);
+                                verifica=true;
+                                break;
+                            }else {
+                                System.out.println("ENTROU");
+                                verifica=true;
+                                TelaPrincipalApp tela1 = new TelaPrincipalApp("Banco 3GK",cliente);
+                                tela1.setVisible(true);
+                                setVisible(false);
+                                break;
+                            }
                         }
                     }
                     if (verifica==false){

@@ -12,7 +12,6 @@ public class Cliente extends Banco implements CalculaJuros {
     private double saldo;
     private Endereco endereco  = new Endereco();
 
-
     public String getCpf() {
         return cpf;
     }
@@ -71,5 +70,11 @@ public class Cliente extends Banco implements CalculaJuros {
     public double getTaxaequivalentes(double taxa, double prazo, double prazoDesejavel) {
         double taxaEquivalente=(Math.pow((taxa/100)+1,prazoDesejavel/prazo)-1)*100;
         return taxaEquivalente;
+    }
+
+    public Cliente(String nomeProprietario, String senha,boolean administrador) {
+        this.nomeProprietario = nomeProprietario;
+        this.senha = senha;
+        super.setAdministrador(administrador);
     }
 }
