@@ -5,6 +5,10 @@ public class Banco {
     private int numero;
     private boolean administrador=false;
 
+    public Banco(int numero, boolean administrador) {
+        this.numero = numero;
+        this.administrador = administrador;
+    }
     public boolean isAdministrador() {
         return administrador;
     }

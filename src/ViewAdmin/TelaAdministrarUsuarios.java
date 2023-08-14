@@ -28,9 +28,12 @@ public class TelaAdministrarUsuarios extends JFrame {
         tableModel.addRow(titulos);
         int i=0;
         for (Cliente clientes:TelaBanco3GK.clientes) { // COLOCAR OBJETOS NA TABELA
+            if (!clientes.isAdministrador()){
                 Object[] data = {TelaBanco3GK.clientes.get(i).getNumero(),TelaBanco3GK.clientes.get(i).getNomeProprietario() , TelaBanco3GK.clientes.get(i).getSenha(), TelaBanco3GK.clientes.get(i).getSaldo()};
                 tableModel.addRow(data);
-                i++;
+
+            }
+            i++;
         }
         add(table);
         table.setBounds(25,10,500,600);

@@ -65,7 +65,7 @@ public class TelaCadastro extends JFrame {
                 String senha = tsenha.getText();
                 if (!tnome.getText().isEmpty()&&!tsenha.getText().isEmpty()){
                     if (rbadm.isSelected()){
-                        TelaBanco3GK.clientes.add(new Cliente(nomeProprietario,senha,true));
+                        TelaBanco3GK.clientes.add(new Cliente(nomeProprietario,senha,0,true));
                         //Tela Administracao
                         TelaBanco3GK tela1 = new TelaBanco3GK("Banco 3GK");
                         tela1.setVisible(true);
@@ -73,7 +73,7 @@ public class TelaCadastro extends JFrame {
                     }else {
                         Random geradorNumeroConta = new Random();
                         int numeroConta = geradorNumeroConta.nextInt(10001);
-                        TelaBanco3GK.clientes.add(new Cliente(nomeProprietario,senha,numeroConta));
+                        TelaBanco3GK.clientes.add(new Cliente(nomeProprietario,senha,numeroConta,false));
                         TelaBanco3GK tela1 = new TelaBanco3GK("Banco 3GK");
                         tela1.setVisible(true);
                         setVisible(false);

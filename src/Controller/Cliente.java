@@ -36,12 +36,6 @@ public class Cliente extends Banco implements CalculaJuros {
         this.endereco = endereco;
     }
 
-    public Cliente(String nomeProprietario, String senha,int numero) {
-        this.nomeProprietario = nomeProprietario;
-        this.senha = senha;
-        setNumero(numero);
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -72,9 +66,9 @@ public class Cliente extends Banco implements CalculaJuros {
         return taxaEquivalente;
     }
 
-    public Cliente(String nomeProprietario, String senha,boolean administrador) {
+    public Cliente(String nomeProprietario, String senha,int numero,boolean administrador) {
+        super(numero,administrador);
         this.nomeProprietario = nomeProprietario;
         this.senha = senha;
-        super.setAdministrador(administrador);
     }
 }
