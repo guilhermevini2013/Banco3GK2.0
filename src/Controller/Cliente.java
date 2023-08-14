@@ -1,11 +1,10 @@
 package Controller;
 
 import Interface.CalculaJuros;
-import view.TelaPrincipalApp;
 
 import javax.swing.*;
 
-public class Cliente extends Banco implements CalculaJuros {
+public class Cliente extends Conta implements CalculaJuros {
     private String cpf;
     private String nomeProprietario;
     private String senha;

@@ -72,6 +72,7 @@ public class TelaBanco3GK extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // botao entrar no APP, com verificacao de campos
+                // COLOCAR CONTA  POUPANCA E CORRENTE
                 if (!tnome.getText().isEmpty()&&!tsenha.getText().isEmpty()){
                     String nomeProprietario= tnome.getText();
                     String senha = tsenha.getText();
