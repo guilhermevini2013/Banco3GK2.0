@@ -50,18 +50,21 @@ public class TelaAdministrar extends JFrame {
         bremoverUsuario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nomeUsuario = JOptionPane.showInputDialog("QUAL O NOME DO USUARIO PARA REMOVER");
-                boolean achou = false;
-                for (Cliente cliente: TelaBanco3GK.clientes) {
-                    if (cliente.getNomeProprietario().contains(nomeUsuario)&&!cliente.getNomeProprietario().contains(client.getNomeProprietario())){
-                        TelaBanco3GK.clientes.remove(cliente);
-                        JOptionPane.showMessageDialog(null,"CLIENTE "+cliente.getNomeProprietario()+" REMOVIDO COM SUCESSO");
-                        achou=true;
-                        break;
+                try {
+                    String nomeUsuario = JOptionPane.showInputDialog("QUAL O NOME DO USUARIO PARA REMOVER");
+                    boolean achou = false;
+                    for (Cliente cliente: TelaBanco3GK.clientes) {
+                        if (cliente.getNomeProprietario().contains(nomeUsuario)&&!cliente.getNomeProprietario().contains(client.getNomeProprietario())){
+                            TelaBanco3GK.clientes.remove(cliente);
+                            JOptionPane.showMessageDialog(null,"CLIENTE "+cliente.getNomeProprietario()+" REMOVIDO COM SUCESSO");
+                            achou=true;
+                            break;
+                        }
                     }
-                }
-                if (!achou){
-                    JOptionPane.showMessageDialog(null,"NOME DE USUARIO INCORRETO");
+                    if (!achou){
+                        JOptionPane.showMessageDialog(null,"NOME DE USUARIO INCORRETO");
+                    }
+                }catch (Exception p){
                 }
             }
         });
