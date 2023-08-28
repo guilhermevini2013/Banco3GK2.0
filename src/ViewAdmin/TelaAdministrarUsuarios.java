@@ -1,8 +1,7 @@
 package ViewAdmin;
 
-import Controller.Cliente;
+import Models.Cliente;
 import view.TelaBanco3GK;
-import view.TelaPrincipalApp;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

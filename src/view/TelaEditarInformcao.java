@@ -1,7 +1,7 @@
 package view;
 
-import Controller.Cliente;
-import Controller.Endereco;
+import Models.Cliente;
+import Models.Endereco;
 
 import javax.swing.*;
 import java.awt.*;

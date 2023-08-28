@@ -1,6 +1,6 @@
 package view;
 
-import Controller.Cliente;
+import Models.Cliente;
 import ViewAdmin.TelaAdministrar;
 
 import javax.swing.*;

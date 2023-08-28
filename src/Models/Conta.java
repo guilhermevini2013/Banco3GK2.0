@@ -1,4 +1,4 @@
-package Controller;
+package Models;
 
 public abstract class Conta {
     private int agencia = 666;

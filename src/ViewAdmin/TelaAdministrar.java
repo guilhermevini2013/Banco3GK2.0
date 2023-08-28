@@ -1,6 +1,6 @@
 package ViewAdmin;
 
-import Controller.Cliente;
+import Models.Cliente;
 import view.TelaBanco3GK;
 
 import javax.swing.*;

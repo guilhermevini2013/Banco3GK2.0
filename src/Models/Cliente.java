@@ -1,8 +1,9 @@
-package Controller;
+package Models;
 
 import Interface.CalculaJuros;
 
 import javax.swing.*;
+import Exception.SemSaldoException;
 
 public class Cliente extends Conta implements CalculaJuros {
     private String cpf;
@@ -44,13 +45,12 @@ public class Cliente extends Conta implements CalculaJuros {
     public void depositaSaldo(double valor){
             this.saldo+=valor;
     }
-    public void sacar(double valor){
+    public void sacar(double valor) throws SemSaldoException {
         //remove o dinheiro da conta do usuario
-        if (valor<=this.saldo&&valor>0){
-            this.saldo-=valor;
-        }else {
-            JOptionPane.showMessageDialog(null,"valor incorreto");
+        if (valor>=this.saldo&&valor<0){
+            throw new SemSaldoException("valor ou saldo incorreto");
         }
+        saldo-=valor;
     }
 
     @Override

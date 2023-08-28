@@ -1,6 +1,6 @@
 package view;
 
-import Controller.Cliente;
+import Models.Cliente;
 
 import javax.swing.*;
 import java.awt.*;
@@ -117,7 +117,7 @@ public class TelaPrincipalApp extends JFrame {
                     double valor = Double.parseDouble(JOptionPane.showInputDialog("DIGITE O VALOR $ PARA TRANSFERIR PARA O REMETENTE   "+numeroDaConta));
                     boolean verifica=false;
                 for (Cliente remetente:clientes) {
-                    if (remetente.getNumero()==Integer.parseInt(numeroDaConta)&&valor>0&&cliente.getNumero()!=Integer.parseInt(numeroDaConta)){
+                    if (remetente.getNumero()==Integer.parseInt(numeroDaConta)&&cliente.getNumero()!=Integer.parseInt(numeroDaConta)){
                         cliente.sacar(valor);
                         System.out.println(cliente.getSaldo());
                         lsaldo.setText(String.valueOf(cliente.getSaldo()));

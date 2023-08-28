@@ -1,13 +1,11 @@
 package view;
 
-import Controller.Cliente;
-import ViewAdmin.TelaAdministrar;
+import Models.Cliente;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.util.Random;
 
 public class TelaCadastro extends JFrame {
